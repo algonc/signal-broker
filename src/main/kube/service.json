@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"signal-broker",
+      "labels":{
+         "app":"signal-broker"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":3000,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"signal-broker"
+      },
+      "type": "LoadBalancer"
+   }
+}

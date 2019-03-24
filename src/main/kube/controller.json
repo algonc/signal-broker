@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"signal-broker",
+      "labels":{
+         "app":"signal-broker"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"signal-broker"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"signal-broker"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"signal-broker",
+                  "image":"algonc/signal-broker:latest",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":3000
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
